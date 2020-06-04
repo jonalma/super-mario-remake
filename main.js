@@ -54,7 +54,7 @@ var menuState = {
         //use the newly added background image
         game.add.image(0, 0, 'background');
 
-        var nameLabel = game.add.text(game.world.centerX, 80, 'THUPER DUPER UCOIN GAME', {font: '30px Arial', fill: '#FFFFFF'});
+        var nameLabel = game.add.text(game.world.centerX, 80, 'Press Up Arrow to Play!', {font: '30px Arial', fill: '#FFFFFF'});
         nameLabel.anchor.setTo(.5, .5);
 
         var scoreLabel = game.add.text(game.world.centerX, game.world.centerY, 'Score: ' + game.global.score, {font: '25px Arial', fill: '#FFFFFF'});
@@ -232,7 +232,8 @@ var mainState = {
        enemy.anchor.setTo(.5, 1);   //bottom middle point (not center)
        enemy.reset(game.world.centerX, 0); //spawn this enemy at the top center of the screen.
        enemy.body.gravity.y = 500;    //add gravity to this enemyu
-       enemy.body.velocity.x = 100 * Phaser.Math.randomSign(); // 1 or -1
+       //enemy.body.velocity.x = 100 * Phaser.Math.randomSign(); // 1 or -1
+       enemy.body.velocity.x = 100 *  Phaser.Utils.randomChoice(1,-1); // 1 or -1
        enemy.body.bounce.x = 1;   //1 bounce = no velocity loss upon bouncing (perfect bounce)
        enemy.checkWorldBounds = true; //enables the enemy to check the world bounds every frame for the next line to work
        enemy.outOfBoundsKill = true;  //Kills the enemy if it is ever !inWorld (not in world)
